@@ -8,7 +8,8 @@
 
 import React from 'react';
 import {ImageBackground, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import CustomButton from './src/components/CustomButton';
+import SettingsButton from './src/components/SettingsButton';
+const assets = require('./src/ImageAssets.js')
 
 const App: () => React$Node = () => {
     return <SafeAreaView
@@ -37,23 +38,54 @@ const App: () => React$Node = () => {
                         color: 'rgba(255,255,255,0.8)',
                     }}>Veri Okuyucu</Text>
 
-
-                    <CustomButton imagePath={}/>
+                    <SettingsButton imageSource={assets.images.ic_settings.uri}/>
                 </View>
                 {/*Top Layout*/}
 
                 <Text style={{
-                    fontSize: 24,
+                    fontSize: 20,
                     color: 'rgba(255,255,255,0.6)',
                     marginHorizontal: 24,
                     marginTop: 16,
                 }}>Veri Tabanı</Text>
 
-                <Text style={{
-                    fontSize: 28,
-                    fontWeight: 'bold',
-                    color: 'rgba(255,255,255,0.8)',
-                }}>Veri Okuyucu</Text>
+                <View style={{
+                    backgroundColor:'rgba(255,255,255,0.08)',
+                    marginHorizontal:24,
+                    flexDirection:'row',
+                    borderRadius:10,
+                }}>
+
+                    <View style={{
+                        margin:10,
+                        flexDirection:'row',
+                        alignItems:'center',
+                    }}>
+                        <View style={{
+                            width:36,
+                            height:36,
+                            backgroundColor:'#000'
+                        }}/>
+
+                        <View style={{
+                            flexDirection:'column',
+                            marginRight:40
+                        }}>
+                            <Text style={{
+                                fontWeight:'bold',
+                                fontSize:14,
+                                color:'#fff'
+                            }}>Liste Aç</Text>
+
+                            <Text style={{
+                                fontWeight:'100',
+                                fontSize:12,
+                                color:'rgba(255,255,255,0.5)'
+                            }}>Cihazınızda var olan veri tabanı dosyasını görüntüleyin ve düzenleyin</Text>
+                        </View>
+
+                    </View>
+                </View>
             </View>
         </ImageBackground>
     </SafeAreaView>;
