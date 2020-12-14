@@ -9,7 +9,9 @@
 import React from 'react';
 import {ImageBackground, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import SettingsButton from './src/components/SettingsButton';
-const assets = require('./src/ImageAssets.js')
+import OptionButton from './src/components/OptionButton';
+
+const assets = require('./src/ImageAssets.js');
 
 const App: () => React$Node = () => {
     return <SafeAreaView
@@ -43,49 +45,36 @@ const App: () => React$Node = () => {
                 {/*Top Layout*/}
 
                 <Text style={{
-                    fontSize: 20,
+                    fontSize: 18,
                     color: 'rgba(255,255,255,0.6)',
                     marginHorizontal: 24,
                     marginTop: 16,
                 }}>Veri Tabanı</Text>
 
-                <View style={{
-                    backgroundColor:'rgba(255,255,255,0.08)',
-                    marginHorizontal:24,
-                    flexDirection:'row',
-                    borderRadius:10,
-                }}>
 
-                    <View style={{
-                        margin:10,
-                        flexDirection:'row',
-                        alignItems:'center',
-                    }}>
-                        <View style={{
-                            width:36,
-                            height:36,
-                            backgroundColor:'#000'
-                        }}/>
+                <OptionButton
+                    optionTitle={'Liste Aç'}
+                    optionMessage={'Cihazınızda var olan veri tabanı dosyasını görüntüleyin ve düzenleyin'}
+                    optionIcon={require('./src/image/ic_open_file.png')}/>
 
-                        <View style={{
-                            flexDirection:'column',
-                            marginRight:40
-                        }}>
-                            <Text style={{
-                                fontWeight:'bold',
-                                fontSize:14,
-                                color:'#fff'
-                            }}>Liste Aç</Text>
+                <OptionButton
+                    optionTitle={'Yeni Liste Oluştur'}
+                    optionMessage={'Yeni bir okuma listesi oluşturun ve düzenleyin'}
+                    optionIcon={require('./src/image/ic_newFile.png')}/>
 
-                            <Text style={{
-                                fontWeight:'100',
-                                fontSize:12,
-                                color:'rgba(255,255,255,0.5)'
-                            }}>Cihazınızda var olan veri tabanı dosyasını görüntüleyin ve düzenleyin</Text>
-                        </View>
 
-                    </View>
-                </View>
+                <Text style={{
+                    fontSize: 18,
+                    color: 'rgba(255,255,255,0.6)',
+                    marginHorizontal: 24,
+                    marginTop: 16,
+                }}>Dışa Aktar</Text>
+
+
+                <OptionButton
+                    optionTitle={'Yeni Liste Oluştur'}
+                    optionMessage={'Yeni bir okuma listesi oluşturun ve düzenleyin'}
+                    optionIcon={require('./src/image/ic_share.png')}/>
             </View>
         </ImageBackground>
     </SafeAreaView>;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import {SvgUri} from 'react-native-svg';
 
 class SettingsButton extends React.Component {
@@ -7,7 +7,7 @@ class SettingsButton extends React.Component {
         imageSource: Image
     } // böyle yaparak itemleri istemek en iyisi mk!
     render() {
-        return (<View style={{
+        return (<TouchableOpacity style={{
                 width: 48,
                 height: 48,
 
@@ -22,7 +22,7 @@ class SettingsButton extends React.Component {
                   width: 36,
                   height: 36
               }} source={require('../image/ic_settings.png')}/>
-            </View>
+            </TouchableOpacity>
         );
     }
 }
