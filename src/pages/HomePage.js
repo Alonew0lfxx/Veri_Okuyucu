@@ -1,6 +1,6 @@
 import React from 'react';
 import {Alert, ImageBackground, SafeAreaView, Text, View} from 'react-native';
-import SettingsButton from '../components/SettingsButton';
+import SquareButton from '../components/SquareButton';
 import OptionButton from '../components/OptionButton';
 
 function HomePage({navigation}) {
@@ -11,7 +11,6 @@ function HomePage({navigation}) {
         <ImageBackground
             source={require('../image/Background.png')}
             style={{flex: 1}}>
-
             <View style={{
                 flexDirection: 'column',
             }}>
@@ -30,9 +29,12 @@ function HomePage({navigation}) {
                         color: 'rgba(255,255,255,0.8)',
                     }}>Veri Okuyucu</Text>
 
-                    <SettingsButton onPressedFunc={() => {
-                        navigation.navigate()
-                    }}/>
+                    <SquareButton
+                        buttonIcon={require('../image/ic_settings.png')}
+                        onPressedFunc={() => {
+                        navigation.navigate()}
+
+                        }/>
                 </View>
                 {/*Top Layout*/}
 
