@@ -6,12 +6,13 @@ class SquareButton extends React.Component {
     static propTypes = {
         onPressedFunc: PropTypes.func.isRequired,
         buttonIcon: PropTypes.any.isRequired,
+        style: PropTypes.any.isRequired,
     }; // böyle yaparak itemleri istemek en iyisi mk!
     render() {
         return (
             <TouchableOpacity
                 onPress={this.props.onPressedFunc}
-                style={{
+                style={[{
                     width: 48,
                     height: 48,
                     borderRadius: 10,
@@ -19,7 +20,7 @@ class SquareButton extends React.Component {
                     alignContent: 'center',
                     alignItems: 'center',
                     justifyContent: 'center',
-                }}>
+                }, this.props.style]}>
 
                 <Image style={{
                     width: 36,

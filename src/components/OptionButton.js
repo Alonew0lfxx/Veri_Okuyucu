@@ -9,10 +9,12 @@ class OptionButton extends React.Component {
         optionTitle: PropTypes.string.isRequired,
         optionMessage: PropTypes.string.isRequired,
         optionIcon: PropTypes.any.isRequired,
+        optionOnPress: PropTypes.any.isRequired
     };
 
     render() {
         return (<TouchableOpacity
+            onPress={this.props.optionOnPress}
             style={{
                 marginTop: 4,
                 backgroundColor: 'rgba(255,255,255,0.08)',

@@ -32,7 +32,8 @@ function HomePage({navigation}) {
                     <SquareButton
                         buttonIcon={require('../image/ic_settings.png')}
                         onPressedFunc={() => {
-                        navigation.navigate()}
+                        navigation.navigate('OpenFilePage');
+                        }
 
                         }/>
                 </View>
@@ -47,6 +48,9 @@ function HomePage({navigation}) {
 
 
                 <OptionButton
+                    optionOnPress={() => {
+                        navigation.navigate();
+                    }}
                     optionTitle={'Liste Aç'}
                     optionMessage={'Cihazınızda var olan veri tabanı dosyasını görüntüleyin ve düzenleyin'}
                     optionIcon={require('../image/ic_open_file.png')}/>
