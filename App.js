@@ -17,7 +17,7 @@ const App: () => React$Node = () => {
     return (
         <NavigationContainer >
             <Stack.Navigator >
-                <Stack.Screen name="route-name" component={HomePage} options={{
+                <Stack.Screen name="HomePage" component={HomePage} options={{
                     headerShown:false //Toolbar'ı gizler.
                 }}/>
             </Stack.Navigator>

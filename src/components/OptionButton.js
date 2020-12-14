@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 
 class OptionButton extends React.Component {
+
     static propTypes = {
         optionTitle: PropTypes.string.isRequired,
         optionMessage: PropTypes.string.isRequired,
@@ -11,13 +12,14 @@ class OptionButton extends React.Component {
     };
 
     render() {
-        return (<TouchableOpacity style={{
-            marginTop: 4,
-            backgroundColor: 'rgba(255,255,255,0.08)',
-            marginHorizontal: 24,
-            flexDirection: 'row',
-            borderRadius: 10,
-        }}>
+        return (<TouchableOpacity
+            style={{
+                marginTop: 4,
+                backgroundColor: 'rgba(255,255,255,0.08)',
+                marginHorizontal: 24,
+                flexDirection: 'row',
+                borderRadius: 10,
+            }}>
 
             <View style={{
                 margin: 10,

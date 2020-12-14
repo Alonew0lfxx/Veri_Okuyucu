@@ -1,9 +1,9 @@
 import React from 'react';
-import {ImageBackground, SafeAreaView, Text, View} from 'react-native';
+import {Alert, ImageBackground, SafeAreaView, Text, View} from 'react-native';
 import SettingsButton from '../components/SettingsButton';
 import OptionButton from '../components/OptionButton';
 
-function HomePage() {
+function HomePage({navigation}) {
     return(<SafeAreaView
         style={{
             flex: 1,
@@ -30,7 +30,9 @@ function HomePage() {
                         color: 'rgba(255,255,255,0.8)',
                     }}>Veri Okuyucu</Text>
 
-                    <SettingsButton/>
+                    <SettingsButton onPressedFunc={() => {
+                        navigation.navigate()
+                    }}/>
                 </View>
                 {/*Top Layout*/}
 

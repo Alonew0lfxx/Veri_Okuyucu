@@ -1,16 +1,20 @@
 import React from 'react';
 import {Image, TouchableOpacity, View} from 'react-native';
 import {SvgUri} from 'react-native-svg';
+import PropTypes from 'prop-types';
 
 class SettingsButton extends React.Component {
     static propTypes = {
-        imageSource: Image
+        onPressedFunc: PropTypes.func.isRequired
     } // böyle yaparak itemleri istemek en iyisi mk!
     render() {
-        return (<TouchableOpacity style={{
+        return (<TouchableOpacity
+
+                onPress={this.props.onPressedFunc}
+
+                style={{
                 width: 48,
                 height: 48,
-
                 borderRadius: 10,
                 backgroundColor: '#F05454',
                 alignContent: 'center',
