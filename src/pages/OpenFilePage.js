@@ -1,10 +1,24 @@
 import React from 'react';
-import {FlatList, ImageBackground, SafeAreaView, Text, View} from 'react-native';
+import {ImageBackground, SafeAreaView, Text, View} from 'react-native';
 import SquareButton from '../components/SquareButton';
-import OptionButton from '../components/OptionButton';
+import * as RNFS from 'react-native-fs';
 
 function OpenFilePage() {
-    return(<SafeAreaView
+
+    RNFS.readDir(RNFS.ExternalStorageDirectoryPath).then(files => {
+        for (let i = 0; i < files.length; i++) {
+            console.log('####');
+            console.log('File Name: ' + files[i].name);
+            console.log('File isDirectory: ' + files[i].isDirectory);
+            console.log('File path: ' + files[i].path);
+            console.log('File size: ' + files[i].size);
+        }
+    })
+        .catch(err => {
+            console.log(err.message, err.code);
+        });
+
+    return (<SafeAreaView
         style={{
             flex: 1,
         }}>
@@ -28,31 +42,31 @@ function OpenFilePage() {
                             navigation.navigate('OpenFilePage');
                         }}
                         style={{
-                            alignSelf:'center',
-                            justifySelf:'center'
+                            alignSelf: 'center',
+                            justifySelf: 'center',
                         }}/>
 
 
-                        <View style={{
-                            flex:1,
-                            alignSelf:'center',
-                            flexDirection:'column',
-                            marginRight:48,
-                        }}>
-                            <Text style={{
-                                fontSize: 28,
-                                textAlign:'center',
-                                fontWeight: 'bold',
-                                color: 'rgba(255,255,255,0.8)',
-                            }}>Liste Aç</Text>
+                    <View style={{
+                        flex: 1,
+                        alignSelf: 'center',
+                        flexDirection: 'column',
+                        marginRight: 48,
+                    }}>
+                        <Text style={{
+                            fontSize: 28,
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            color: 'rgba(255,255,255,0.8)',
+                        }}>Liste Aç</Text>
 
-                            <Text style={{
-                                fontSize: 14,
-                                textAlign:'center',
-                                color: 'rgba(255,255,255,0.4)',
-                            }}>/sdcard/msg/veri_okuyucu</Text>
+                        <Text style={{
+                            fontSize: 14,
+                            textAlign: 'center',
+                            color: 'rgba(255,255,255,0.4)',
+                        }}>/sdcard/msg/veri_okuyucu</Text>
 
-                        </View>
+                    </View>
                 </View>
                 {/*Top Layout*/}
 
@@ -62,8 +76,6 @@ function OpenFilePage() {
                     marginHorizontal: 24,
                     marginTop: 16,
                 }}>Klasörler</Text>
-
-
 
 
             </View>

@@ -2,8 +2,24 @@ import React from 'react';
 import {Alert, ImageBackground, SafeAreaView, Text, View} from 'react-native';
 import SquareButton from '../components/SquareButton';
 import OptionButton from '../components/OptionButton';
+import * as RNFS from 'react-native-fs';
+
 
 function HomePage({navigation}) {
+
+    //readDir(dirpath: string)
+    RNFS.readDir(RNFS.DocumentDirectoryPath).then(files => {
+        for (let i = 0; i < files.length; i++) {
+            console.log("File Name: " + files[i].name);
+            console.log("File isDirectory: " + files[i].isDirectory);
+            console.log("File path: " + files[i].path);
+            console.log("File size: " + files[i].size);
+        }
+    })
+        .catch(err => {
+            console.log(err.message, err.code);
+        });
+
     return(<SafeAreaView
         style={{
             flex: 1,
@@ -33,9 +49,10 @@ function HomePage({navigation}) {
                         buttonIcon={require('../image/ic_settings.png')}
                         onPressedFunc={() => {
                         navigation.navigate('OpenFilePage');
-                        }
+                        }}
+                        style={{
 
-                        }/>
+                        }}/>
                 </View>
                 {/*Top Layout*/}
 
@@ -58,7 +75,8 @@ function HomePage({navigation}) {
                 <OptionButton
                     optionTitle={'Yeni Liste Oluştur'}
                     optionMessage={'Yeni bir okuma listesi oluşturun ve düzenleyin'}
-                    optionIcon={require('../image/ic_newFile.png')}/>
+                    optionIcon={require('../image/ic_newFile.png')}
+                    optionOnPress={{}}/>
 
 
                 <Text style={{
@@ -72,7 +90,8 @@ function HomePage({navigation}) {
                 <OptionButton
                     optionTitle={'Yeni Liste Oluştur'}
                     optionMessage={'Yeni bir okuma listesi oluşturun ve düzenleyin'}
-                    optionIcon={require('../image/ic_share.png')}/>
+                    optionIcon={require('../image/ic_share.png')}
+                    optionOnPress={{}}/>
             </View>
         </ImageBackground>
     </SafeAreaView>);
